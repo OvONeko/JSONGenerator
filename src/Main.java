@@ -11,8 +11,10 @@ import java.util.UUID;
 public class Main {
     public static void main(String[] args) throws IOException {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Input:");
+        System.out.print("Input amount:");
         int i = scanner.nextInt();
+        System.out.print("Input length:");
+        int j = scanner.nextInt();
         File file = new File("./output.json");
         if (!file.exists())
             file.createNewFile();
@@ -21,7 +23,7 @@ public class Main {
         while ((--i) > 0) {
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("title", UUID.randomUUID().toString());
-            jsonObject.put("description", randomString(50));
+            jsonObject.put("description", randomString(j));
             jsonObject.put("button1", "修改");
             jsonObject.put("button2", "删除");
             writer.append(jsonObject.toJSONString());
